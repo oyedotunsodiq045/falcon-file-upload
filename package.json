@@ -1,0 +1,28 @@
+{
+  "name": "falcon-file-upload",
+  "version": "1.0.0",
+  "description": "a crud dockerized microservice for files #multer #cloudinary #multer-storage-cloudinary",
+  "main": "server.js",
+  "scripts": {
+    "start": "NODE_ENV=production node server",
+    "dev": "nodemon server"
+  },
+  "author": "sodiq for team-falcon",
+  "license": "MIT",
+  "dependencies": {
+    "cloudinary": "^1.22.0",
+    "colors": "^1.4.0",
+    "dotenv": "^8.2.0",
+    "express": "^4.17.1",
+    "mongoose": "^5.9.18",
+    "morgan": "^1.10.0",
+    "multer": "^1.4.2",
+    "multer-storage-cloudinary": "^4.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  },
+  "optionalDependencies": {
+    "win-node-env": "^0.4.0"
+  }
+}
