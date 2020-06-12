@@ -46,7 +46,7 @@ Body: form-data
     Value - select file
 ```
 
-![Create a file screenshot](create_a_file.png)
+![Create a file screenshot](create_a_file.PNG)
 
 * Sample Response
 
@@ -76,7 +76,7 @@ Body: form-data
     Value - select files
 ```
 
-![Create bulk files screenshot](create_bulk_files.png)
+![Create bulk files screenshot](create_bulk_files.PNG)
 
 * Sample Response
 
