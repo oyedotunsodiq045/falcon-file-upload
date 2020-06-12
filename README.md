@@ -19,13 +19,19 @@ npm run dev
 
 # Serve on localhost:3000 (production)
 npm start
+
+# Import sample data into mongodb
+node seeder -i
+
+# Import sample data from mongodb
+node seeder -d
 ```
 
 ### Testing
 
 ### Files
 
-#### Create a File
+#### Create a file
 
 * Method - POST
 
@@ -55,7 +61,7 @@ Body: form-data
 }
 ```
 
-#### Create bulk Files
+#### Create bulk files
 
 * Method - POST
 
@@ -78,7 +84,7 @@ Body: form-data
 ...
 ```
 
-#### Get all Files
+#### Get all files
 
 * Method - GET
 
@@ -113,7 +119,7 @@ Body: form-data
 }
 ```
 
-#### Get a File
+#### Get a file
 
 * Method - GET
 
@@ -133,7 +139,7 @@ Body: form-data
 }
 ```
 
-#### Update a File
+#### Update a file
 
 * Method - PUT
 
@@ -153,7 +159,7 @@ Body: form-data
 ...
 ```
 
-#### Delete a File
+#### Delete a file
 
 * Method - DELETE
 
@@ -173,6 +179,6 @@ Body: form-data
 ...
 ```
 
-#### Search a File
+#### Search a file
 
-#### Get all Files - Paging
+#### Get all files - Sorting, Paging, Filtering
