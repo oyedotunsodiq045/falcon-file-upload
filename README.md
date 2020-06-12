@@ -23,7 +23,7 @@ npm start
 # Import sample data into mongodb
 node seeder -i
 
-# Import sample data from mongodb
+# Delete data from mongodb
 node seeder -d
 ```
 
