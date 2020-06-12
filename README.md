@@ -1,6 +1,6 @@
 # FALCON-FILE-UPLOAD
 
-> a crud dockerized microservice for files #multer #cloudinary #multer-storage-cloudinary.
+> a crud dockerized microservice for files #multer #cloudinary #mongodb #multer-storage-cloudinary.
 
 ## Quick Start
 
@@ -33,6 +33,13 @@ npm start
 
 * Sample Request
 
+```
+Headers 
+Body: form-data
+    Key - file(file)
+    Value - select file
+```
+
 ![Task screenshot](create_a_file.png)
 
 * Sample Response
@@ -55,6 +62,13 @@ npm start
 * URL - localhost:3000/api/v1/files/bulk
 
 * Sample Request
+
+```
+Headers 
+Body: form-data
+    Key - files(file)
+    Value - select files
+```
 
 ![Task screenshot](create_bulk_files.png)
 
