@@ -29,18 +29,27 @@ node seeder -d
 
 ### Testing
 
+| Routes                                              | Description       |
+| --------------------------------------------------- | ----------------- |
+| POST &nbsp; &nbsp; &nbsp; api/v1/files              | Create a file     |
+| POST &nbsp; &nbsp; &nbsp; api/v1/files/bulk         | Create bulk files |
+| GET &nbsp; &nbsp; &nbsp; &nbsp; api/v1/files/:id    | Get a file        |
+| GET &nbsp; &nbsp; &nbsp; &nbsp; api/v1/files        | Get all files     |
+| PUT &nbsp; &nbsp; &nbsp; &nbsp; api/v1/files/:id    | Update a file     |
+| DELETE &nbsp; api/v1/files/:id                      | Delete a fie      |
+
 ### Files
 
 #### Create a file
 
-* Method - POST
+- Method - POST
 
-* URL - localhost:3000/api/v1/files
+- URL - localhost:3000/api/v1/files
 
-* Sample Request
+- Sample Request
 
 ```
-Headers 
+Headers
 Body: form-data
     Key - file(file)
     Value - select file
@@ -48,7 +57,7 @@ Body: form-data
 
 ![Create a file screenshot](create_a_file.PNG)
 
-* Sample Response
+- Sample Response
 
 ```
 {
@@ -63,14 +72,14 @@ Body: form-data
 
 #### Create bulk files
 
-* Method - POST
+- Method - POST
 
-* URL - localhost:3000/api/v1/files/bulk
+- URL - localhost:3000/api/v1/files/bulk
 
-* Sample Request
+- Sample Request
 
 ```
-Headers 
+Headers
 Body: form-data
     Key - files(file)
     Value - select files
@@ -78,7 +87,7 @@ Body: form-data
 
 ![Create bulk files screenshot](create_bulk_files.PNG)
 
-* Sample Response
+- Sample Response
 
 ```
 ...
@@ -86,11 +95,11 @@ Body: form-data
 
 #### Get all files
 
-* Method - GET
+- Method - GET
 
-* URL - localhost:3000/api/v1/files
+- URL - localhost:3000/api/v1/files
 
-* Sample Response
+- Sample Response
 
 ```
 {
@@ -121,11 +130,11 @@ Body: form-data
 
 #### Get a file
 
-* Method - GET
+- Method - GET
 
-* URL - localhost:3000/api/v1/files/5ee23577a32c8b623c7a85f2
+- URL - localhost:3000/api/v1/files/5ee23577a32c8b623c7a85f2
 
-* Sample Response
+- Sample Response
 
 ```
 {
@@ -141,19 +150,19 @@ Body: form-data
 
 #### Update a file
 
-* Method - PUT
+- Method - PUT
 
-* URL - localhost:3000/api/v1/files/:id
+- URL - localhost:3000/api/v1/files/:id
 
-* HEADER
+- HEADER
 
-* Sample Request
+- Sample Request
 
 ```
 ...
 ```
 
-* Sample Response
+- Sample Response
 
 ```
 ...
@@ -161,19 +170,19 @@ Body: form-data
 
 #### Delete a file
 
-* Method - DELETE
+- Method - DELETE
 
-* URL - localhost:3000/api/v1/files/:id
+- URL - localhost:3000/api/v1/files/:id
 
-* HEADER
+- HEADER
 
-* Sample Request
+- Sample Request
 
 ```
 ...
 ```
 
-* Sample Response
+- Sample Response
 
 ```
 ...

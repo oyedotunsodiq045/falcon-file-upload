@@ -1,33 +1,33 @@
 const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 const File = require('../models/File');
-// const parser = require('../middleware/cloudinaryConfig');
+const parser = require('../middleware/cloudinaryConfig');
 const dotenv = require('dotenv');
-const multer = require('multer');
-const cloudinary = require('cloudinary').v2;
-const { CloudinaryStorage } = require('multer-storage-cloudinary');
+// const multer = require('multer');
+// const cloudinary = require('cloudinary').v2;
+// const { CloudinaryStorage } = require('multer-storage-cloudinary');
 
-// Load env vars
-dotenv.config({
-  path: './config/config.env',
-});
+// // Load env vars
+// dotenv.config({
+//   path: './config/config.env',
+// });
 
-cloudinary.config({
-  cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-  api_key: process.env.CLOUDINARY_API_KEY,
-  api_secret: process.env.CLOUDINARY_API_SECRET,
-});
+// cloudinary.config({
+//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
+//   api_key: process.env.CLOUDINARY_API_KEY,
+//   api_secret: process.env.CLOUDINARY_API_SECRET,
+// });
 
-const storage = new CloudinaryStorage({
-  cloudinary: cloudinary,
-  params: {
-    folder: 'files',
-    allowedFormats: ['jpg', 'jpeg', 'png', 'mp4', 'svg', 'gif'],
-    transformation: [{ width: 500, height: 500, crop: 'limit' }],
-  },
-});
+// const storage = new CloudinaryStorage({
+//   cloudinary: cloudinary,
+//   params: {
+//     folder: 'files',
+//     allowedFormats: ['jpg', 'jpeg', 'png', 'mp4', 'svg', 'gif'],
+//     transformation: [{ width: 500, height: 500, crop: 'limit' }],
+//   },
+// });
 
-const parser = multer({ storage: storage });
+// const parser = multer({ storage: storage });
 
 // @desc    Get all Files
 // @route   GET /api/v1/files
@@ -68,14 +68,12 @@ exports.createFile = asyncHandler(async (req, res, next) => {
     if (err instanceof multer.MulterError) {
       // A Multer error occurred when uploading.
       return next(
-        next(new ErrorResponse(`A Multer error occurred when uploading.`, 404))
+        new ErrorResponse(`An unknown error occurred when uploading.`, 404)
       );
     } else if (err) {
       // An unknown error occurred when uploading.
       return next(
-        next(
-          new ErrorResponse(`An unknown error occurred when uploading.`, 404)
-        )
+        new ErrorResponse(`An unknown error occurred when uploading.`, 404)
       );
     }
     // Add file path to request body
@@ -99,35 +97,34 @@ exports.createBulkFile = asyncHandler(async (req, res, next) => {
     if (err instanceof multer.MulterError) {
       // A Multer error occurred when uploading.
       return next(
-        next(new ErrorResponse(`A Multer error occurred when uploading.`, 404))
+        new ErrorResponse(`An unknown error occurred when uploading.`, 404)
       );
     } else if (err) {
       // An unknown error occurred when uploading.
       return next(
-        next(
-          new ErrorResponse(`An unknown error occurred when uploading.`, 404)
-        )
+        new ErrorResponse(`An unknown error occurred when uploading.`, 404)
       );
     }
     // console.log(typeof req.files); // object
-    for (let value of req.files.values()) {
-      // console.log(value.path);
-      if (value.path) {
-        req.body['path'] = value.path;
-      } else {
-      }
-      // Add file path to request body
-      // if (value.path) req.body['path'] = value.path;
-      let files = new File(req.body);
-      // console.log(files);
-      files.save();
+    console.log(req.files); // object
+    // for (let value of req.files.values()) {
+    //   // console.log(value.path);
+    //   if (value.path) {
+    //     req.body['path'] = value.path;
+    //   } else {
+    //   }
+    //   // Add file path to request body
+    //   // if (value.path) req.body['path'] = value.path;
+    //   let files = new File(req.body);
+    //   // console.log(files);
+    //   files.save();
 
-      // res.setHeader(name, value)
-      res.status(201).json({
-        success: true,
-        data: files,
-      });
-    }
+    //   // res.setHeader(name, value)
+    //   res.status(201).json({
+    //     success: true,
+    //     data: files,
+    //   });
+    // }
   });
 });
 
@@ -139,14 +136,12 @@ exports.updateFile = asyncHandler(async (req, res, next) => {
     if (err instanceof multer.MulterError) {
       // A Multer error occurred when uploading.
       return next(
-        next(new ErrorResponse(`A Multer error occurred when uploading.`, 404))
+        new ErrorResponse(`An unknown error occurred when uploading.`, 404)
       );
     } else if (err) {
       // An unknown error occurred when uploading.
       return next(
-        next(
-          new ErrorResponse(`An unknown error occurred when uploading.`, 404)
-        )
+        new ErrorResponse(`An unknown error occurred when uploading.`, 404)
       );
     }
     // Add file path to request body
@@ -157,9 +152,7 @@ exports.updateFile = asyncHandler(async (req, res, next) => {
 
     if (!file) {
       return next(
-        next(
-          new ErrorResponse(`File not found with id of ${req.params.id}`, 404)
-        )
+        new ErrorResponse(`An unknown error occurred when uploading.`, 404)
       );
     }
 
