@@ -2,32 +2,7 @@ const ErrorResponse = require('../utils/errorResponse');
 const asyncHandler = require('../middleware/async');
 const File = require('../models/File');
 const parser = require('../middleware/cloudinaryConfig');
-const dotenv = require('dotenv');
-// const multer = require('multer');
-// const cloudinary = require('cloudinary').v2;
-// const { CloudinaryStorage } = require('multer-storage-cloudinary');
-
-// // Load env vars
-// dotenv.config({
-//   path: './config/config.env',
-// });
-
-// cloudinary.config({
-//   cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
-//   api_key: process.env.CLOUDINARY_API_KEY,
-//   api_secret: process.env.CLOUDINARY_API_SECRET,
-// });
-
-// const storage = new CloudinaryStorage({
-//   cloudinary: cloudinary,
-//   params: {
-//     folder: 'files',
-//     allowedFormats: ['jpg', 'jpeg', 'png', 'mp4', 'svg', 'gif'],
-//     transformation: [{ width: 500, height: 500, crop: 'limit' }],
-//   },
-// });
-
-// const parser = multer({ storage: storage });
+const multer = require('multer');
 
 // @desc    Get all Files
 // @route   GET /api/v1/files
@@ -50,7 +25,7 @@ exports.getFile = asyncHandler(async (req, res, next) => {
 
   if (!file) {
     return next(
-      next(new ErrorResponse(`File not found with id of ${req.params.id}`, 404))
+      new ErrorResponse(`File not found with id of ${req.params.id}`, 404)
     );
   }
 
@@ -175,7 +150,7 @@ exports.deleteFile = asyncHandler(async (req, res, next) => {
 
   // if (!file) {
   //   return next(
-  //     next(new ErrorResponse(`File not found with id of ${req.params.id}`, 404))
+  //     new ErrorResponse(`File not found with id of ${req.params.id}`, 404)
   //   );
   // }
 
