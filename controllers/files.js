@@ -80,26 +80,20 @@ exports.createBulkFile = asyncHandler(async (req, res, next) => {
         new ErrorResponse(`An unknown error occurred when uploading.`, 404)
       );
     }
-    // console.log(typeof req.files); // object
-    console.log(req.files); // object
-    // for (let value of req.files.values()) {
-    //   // console.log(value.path);
-    //   if (value.path) {
-    //     req.body['path'] = value.path;
-    //   } else {
-    //   }
-    //   // Add file path to request body
-    //   // if (value.path) req.body['path'] = value.path;
-    //   let files = new File(req.body);
-    //   // console.log(files);
-    //   files.save();
+    // Add files path to request body
+    let path;
+    req.files.forEach((file) => {
+      // console.log(file.path);
+      if (file.path) req.body['path'] = file.path;
+      // console.log(req.body);
+      path = new File(req.body);
+      path.save();
+    });
 
-    //   // res.setHeader(name, value)
-    //   res.status(201).json({
-    //     success: true,
-    //     data: files,
-    //   });
-    // }
+    res.status(201).json({
+      success: true,
+      message: 'Files uploaded successfully',
+    });
   });
 });
 
