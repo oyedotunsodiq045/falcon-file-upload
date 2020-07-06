@@ -90,7 +90,10 @@ Body: form-data
 - Sample Response
 
 ```
-...
+{
+    "success": true,
+    "message": "Files uploaded successfully"
+}
 ```
 
 #### Get all files
@@ -159,13 +162,13 @@ Body: form-data
 - Sample Request
 
 ```
-...
+... under construction
 ```
 
 - Sample Response
 
 ```
-...
+... under construction
 ```
 
 #### Delete a file
@@ -179,13 +182,13 @@ Body: form-data
 - Sample Request
 
 ```
-...
+... under construction
 ```
 
 - Sample Response
 
 ```
-...
+... under construction
 ```
 
 #### Search a file
